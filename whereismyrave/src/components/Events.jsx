@@ -1,9 +1,9 @@
 import React from 'react'
 
-class Event extends React.Component {
+class Events extends React.Component {
 	render() {
 		return <p>Event Test</p>
 	}
 }
 
-export default Event
+export default Events
