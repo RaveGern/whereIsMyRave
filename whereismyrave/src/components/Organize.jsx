@@ -3,10 +3,14 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import GoogleMapReact from 'google-map-react'
 import axios from 'axios'
+import Pin from './Pin.jsx'
 
 class Organize extends React.Component {
 	state = {
-		newEvent: {},
+		newEvent: {
+			lat: 0,
+			lng: 0
+		},
 		key: {
 			key: 'AIzaSyCVJkF4x11QI221vToWHyVvM4voNYuYbwU'
 		},
@@ -20,19 +24,27 @@ class Organize extends React.Component {
 	handleChangeDay = day => {
 		console.log(day)
 		this.setState({
-			day: day
+			newEvent: { ...this.state.newEvent, day }
 		})
 	}
 
-	handleChangeStart = date => {
+	handleClickedMap = g => {
+		console.log(g)
+
 		this.setState({
-			startTime: date
+			newEvent: { ...this.state.newEvent, lat: g.lat, lng: g.lng }
 		})
 	}
 
-	handleChangeEnd = date => {
+	handleChangeStart = start => {
 		this.setState({
-			endTime: date
+			newEvent: { ...this.state.newEvent, start }
+		})
+	}
+
+	handleChangeEnd = end => {
+		this.setState({
+			newEvent: { ...this.state.newEvent, end }
 		})
 	}
 	changeField = (e, field) => {
@@ -46,6 +58,7 @@ class Organize extends React.Component {
 	createEvent = e => {
 		e.preventDefault()
 		let fields = ['name', 'day', 'start', 'end', 'genre']
+
 		axios
 			.post('http://localhost:1337/events', this.state.newEvent, {})
 			.then(res => {
@@ -73,15 +86,15 @@ class Organize extends React.Component {
 				<label>Day</label>
 				<div>
 					<DatePicker
-						selected={this.state.day}
-						onChange={e => this.handleChangeDay(e, 'day')}
+						selected={this.state.newEvent.day}
+						onChange={this.handleChangeDay}
 						dateFormat="dd / MM / yyyy"
 					/>
 				</div>
 				<label>Start</label>
-				<div>
+				<div className="group">
 					<DatePicker
-						selected={this.state.startTime}
+						selected={this.state.newEvent.start}
 						onChange={this.handleChangeStart}
 						showTimeSelect
 						showTimeSelectOnly
@@ -91,9 +104,9 @@ class Organize extends React.Component {
 					/>
 				</div>
 				<label>End</label>
-				<div>
+				<div className="group">
 					<DatePicker
-						selected={this.state.endTime}
+						selected={this.state.newEvent.end}
 						onChange={this.handleChangeEnd}
 						showTimeSelect
 						showTimeSelectOnly
@@ -108,7 +121,14 @@ class Organize extends React.Component {
 						bootstrapURLKeys={this.state.key}
 						center={this.state.center}
 						zoom={this.state.zoom}
-					></GoogleMapReact>
+						onClick={g => this.handleClickedMap(g)}
+					>
+						<Pin
+							lat={this.state.newEvent.lat}
+							lng={this.state.newEvent.lng}
+							className="pin"
+						/>
+					</GoogleMapReact>
 				</div>
 				<label>Genre</label>
 				<div className="group">

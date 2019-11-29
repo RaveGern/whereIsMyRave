@@ -1,6 +1,15 @@
+.map {
+	width: 90vw;
+	height: 80%;
+	position: absolute;
+	left: 1450px;
+	margin-top: 120px;
+	margin-left: 40px;
+}
+
 .pin {
 	width: 100px;
-	height: 64px;
+	height: 100px;
 	margin-top: -64px;
 	margin-left: -50px;
 	background-image: url('../images/pin.png');
