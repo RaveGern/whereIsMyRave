@@ -47,8 +47,8 @@ class myEvents extends React.Component {
 							<Nav variant="pills" className="flex-column">
 								{this.state.events.map((rave, index) => {
 									return (
-										<Nav.Item>
-											<Nav.Link href={`/event/${rave._id}`} key={index}>
+										<Nav.Item key={index}>
+											<Nav.Link href={`/event/${rave._id}`}>
 												{rave.name}
 											</Nav.Link>
 										</Nav.Item>
