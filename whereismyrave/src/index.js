@@ -5,6 +5,7 @@ import Routes from './Routes'
 import './styles/maps.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/eventGrid.css'
+import './styles/boxandbuttons.css'
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(<Routes />, document.getElementById('root'))

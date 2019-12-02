@@ -57,7 +57,7 @@ class Organize extends React.Component {
 
 	createEvent = e => {
 		e.preventDefault()
-		let fields = ['name', 'day', 'start', 'end', 'genre']
+		let fields = ['name', 'day', 'start', 'end', 'genre', 'code']
 
 		axios
 			.post('http://localhost:1337/events', this.state.newEvent, {})
@@ -136,6 +136,14 @@ class Organize extends React.Component {
 						type="text"
 						value={this.state.newEvent.genre}
 						onChange={e => this.changeField(e, 'genre')}
+					></input>
+				</div>
+				<label>Code</label>
+				<div className="group">
+					<input
+						type="text"
+						value={this.state.newEvent.code}
+						onChange={e => this.changeField(e, 'code')}
 					></input>
 				</div>
 				<button className="primary">Submit</button>
