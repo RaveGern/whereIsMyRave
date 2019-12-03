@@ -54,6 +54,20 @@ class Event extends React.Component {
 			.catch(err => {
 				console.log({ err })
 			})
+		axios
+			.post('http://localhost:1337/users', {
+				email: this.state.email.address,
+				code: this.state.event.code
+			})
+			.then(res => {
+				console.log(res)
+				this.setState({
+					users: res.data.data
+				})
+			})
+			.catch(err => {
+				console.log(err)
+			})
 	}
 
 	componentDidMount() {
