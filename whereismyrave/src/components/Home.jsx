@@ -29,7 +29,11 @@ export default function FixedContainer() {
 			<Container fixed>
 				<Typography
 					component="div"
-					style={{ backgroundColor: '#DE9331', height: '100vh' }}
+					style={{
+						backgroundColor: '#DE9331',
+						height: '100vh',
+						width: '100vw'
+					}}
 				/>
 			</Container>
 		</React.Fragment>

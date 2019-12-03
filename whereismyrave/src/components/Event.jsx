@@ -5,6 +5,7 @@ import Table from 'react-bootstrap/Table'
 import GoogleMap from 'google-map-react'
 import Pin from './Pin.jsx'
 import EmailBox from './EmailBox.jsx'
+import moment from 'moment'
 
 class Event extends React.Component {
 	state = {
@@ -16,7 +17,7 @@ class Event extends React.Component {
 			lat: 53.532158,
 			lng: 10.020708
 		},
-		zoom: 10,
+		zoom: 13,
 		isHidden: true,
 		email: {
 			address: ''
@@ -57,10 +58,11 @@ class Event extends React.Component {
 		axios
 			.post('http://localhost:1337/users', {
 				email: this.state.email.address,
-				code: this.state.event.code
+				code: this.state.event.code,
+				id: this.state.event._id
 			})
 			.then(res => {
-				console.log(res)
+				console.log('aaaa', res)
 				this.setState({
 					users: res.data.data
 				})
@@ -72,6 +74,7 @@ class Event extends React.Component {
 
 	componentDidMount() {
 		let eventID = this.props.match.params.id
+
 		axios
 			.get(`http://localhost:1337/event/${eventID}`)
 			.then(res => {
@@ -92,26 +95,32 @@ class Event extends React.Component {
 						<div className="background">
 							<ul>
 								<li>{this.state.event.name}</li>
-								<li>{this.state.event.day}</li>
-								<li>{this.state.event.start}</li>
-								<li>{this.state.event.end}</li>
+								<li>{moment(this.state.event.day).format('DD MMM YY ')}</li>
+								<li>{moment(this.state.event.start).format('h:mm a')}</li>
+								<li>{moment(this.state.event.end).format('h:mm a')}</li>
 								<li>
 									Lat {this.state.event.lat} + Lng {this.state.event.lng}
 								</li>
 							</ul>
 						</div>
-						<div className="eventMap">
+						<div>
 							<GoogleMap
 								bootstrapURLKeys={this.state.key}
 								center={this.state.center}
 								zoom={this.state.zoom}
 							>
-								<Pin lat={this.state.event.lat} lng={this.state.event.lng} />
+								<Pin
+									lat={this.state.event.lat}
+									lng={this.state.event.lng}
+									name={this.state.event.name}
+								/>
 							</GoogleMap>
 						</div>
 					</div>
-					123
-					<button onClick={this.toggleHidden.bind(this)}>+</button>
+					<div>
+						<button onClick={this.toggleHidden.bind(this)}>+</button>
+					</div>
+
 					{!this.state.isHidden && (
 						<EmailBox
 							inputEmail={this.inputEmail}
