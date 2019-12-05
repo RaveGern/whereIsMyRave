@@ -1,41 +1,76 @@
 import React from 'react'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import Typography from '@material-ui/core/Typography'
-import Container from '@material-ui/core/Container'
-import Button from '@material-ui/core/Button'
+import Join from './Join.jsx'
+import Event from './Event.jsx'
+import axios from 'axios'
+import { withRouter } from 'react-router-dom'
 
-export default function FixedContainer() {
-	return (
-		<React.Fragment>
-			<Button
-				variant="contained"
-				color="primary"
-				className="button1"
-				Link
-				href="/Join"
-			>
-				Join
-			</Button>
-			<Button
-				variant="contained"
-				color="primary"
-				className="button2"
-				Link
-				href="/Organize"
-			>
-				Organize
-			</Button>
-			<CssBaseline />
-			<Container fixed>
-				<Typography
-					component="div"
-					style={{
-						backgroundColor: '#DE9331',
-						height: '100vh',
-						width: '100vw'
-					}}
-				/>
-			</Container>
-		</React.Fragment>
-	)
+class Home extends React.Component {
+	state = {
+		event: [],
+		isRenderingJoin: true,
+		isRenderingEvent: false,
+		codeTyped: '',
+		eventCodes: []
+	}
+	changeField = e => {
+		let codeTyped
+		codeTyped = e
+		this.setState({ codeTyped })
+		this.state.eventCodes.forEach(c => {
+			if (codeTyped == c) {
+				this.setState({ isRenderingEvent: true, isRenderingJoin: false })
+			}
+		})
+	}
+
+	toggleRendering() {
+		this.setState({
+			isRenderingJoin: this.state.isRenderingJoin,
+			isRenderingEvent: !this.state.isRenderingEvent
+		})
+	}
+
+	getEventCodes = () => {
+		let arrayCodes = this.state.event.map(ev => ev.code)
+		this.setState({ eventCodes: arrayCodes })
+	}
+
+	componentDidMount() {
+		axios
+			.get('http://localhost:1337/myEvents')
+			.then(res => {
+				console.log('res all events', res.data)
+				this.setState({
+					event: res.data
+				})
+			})
+			.catch(err => {
+				console.log(err)
+			})
+	}
+
+	codeOk = () => {
+		this.getEventCodes()
+	}
+
+	render() {
+		return (
+			<>
+				<div>
+					{this.state.isRenderingJoin && (
+						<Join
+							toggleRendering={this.toggleRendering}
+							changeField={this.changeField}
+							event={this.state.event}
+							codeOk={this.codeOk}
+						/>
+					)}
+
+					{this.state.isRenderingEvent && <Event event={this.state.event} />}
+				</div>
+			</>
+		)
+	}
 }
+
+export default withRouter(Home)
