@@ -1,15 +1,129 @@
 .roundedCorners {
-	margin-top: 20px;
+	margin-top: 75px;
+	margin-left: 80px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-style: solid;
+	height: 100px;
+	width: 400px;
+	background-color: #f0f8ff;
+	box-shadow: 0.5px 1px 2px rgba(0, 0, 0, 0.4);
+	position: absolute;
+	right: 300px;
+	top: 150px;
+	padding: 22px;
+}
+
+.header {
+	background-color: #f1f1f1;
+	text-align: center;
+	padding: 25px;
+	box-shadow: 5px 10px 18px #888888;
+}
+
+.roundedButton {
+	border-top-left-radius: 50px;
+	border-top-right-radius: 50px;
+	border-bottom-left-radius: 50px;
+	border-bottom-right-radius: 50px;
+	background-color: #f0f8ff;
+	height: 75px;
+	width: 75px;
+	position: absolute;
+	left: 550px;
+}
+
+.margin {
+	margin-left: 75px;
+}
+
+.button {
+	background-color: white; /* Green */
+	border: none;
+	color: black;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
-	border-style: solid;
-	height: 95px;
-	width: 300px;
-	background-color: #f0f8ff;
-	box-shadow: 0.5px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.button1 {
+	height: 70px;
+	width: 350px;
+	bottom: 100px;
+	right: 325px;
+	font-style: italic;
+	font-weight: bold;
 	position: absolute;
-	right: 770px;
-	top: 300px;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	opacity: 0.8;
+}
+
+.button2 {
+	position: absolute;
+	height: 70px;
+	width: 350px;
+	bottom: 250px;
+	margin-left: 30px;
+	left: 250px;
+	opacity: 0.9;
+}
+
+.eventButton {
+	margin-top: 30px;
+	margin-left: 30px;
+	padding: 20px;
+}
+
+.button:hover {
+	background-color: #4caf50; /* Green */
+	color: white;
+}
+
+.right {
+	position: absolute;
+	right: 37px;
+}
+
+.inviteBox {
+	padding: 20px;
+	position: absolute;
+	bottom: 100px;
+	height: 100px;
+	width: 700px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-style: solid;
+	border-color: #f5f5f5;
+}
+
+.deleteButton {
+	height: 65px;
+	width: 125px;
+	background-color: white;
+	border: none;
+	color: black;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.deleteButton:hover {
+	background-color: #980000; /* red */
+	color: white;
 }

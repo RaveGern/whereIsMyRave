@@ -7,6 +7,9 @@ import './styles/maps.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/eventGrid.css'
 import './styles/boxandbuttons.css'
+import './styles/fonts.css'
+import './styles/forms.css'
+import './styles/cards.css'
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(<Routes />, document.getElementById('root'))

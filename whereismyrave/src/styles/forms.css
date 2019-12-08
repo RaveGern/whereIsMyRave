@@ -1,11 +1,12 @@
 form input {
-	width: 60%;
+	width: 25vw;
 	height: 50px;
 	font-size: 16px;
 	padding: 10px 15px;
 	box-sizing: border-box;
 	border-radius: 4px;
 	border: 1px solid #e2e2e2;
+	margin-left: 50px;
 }
 
 form input[type='file'] {
@@ -13,17 +14,21 @@ form input[type='file'] {
 }
 
 form label {
+	margin-top: 30px;
 	display: block;
 	margin-bottom: 8px;
-	color: #8a8a8a;
+	color: #f5f5f5;
+	font-weight: bold;
+	margin-left: 50px;
 }
 
-form .group + .group {
-	margin-top: 30px;
+.group {
+	margin: 22px;
 }
 
 form .group + button {
-	margin-top: 30px;
+	margin-top: 50px;
+	margin-left: 50px;
 }
 
 form textarea {
@@ -46,24 +51,24 @@ select {
 	cursor: pointer;
 }
 
-label.checkbox input {
+/* label.checkbox input {
 	display: inline-block;
 	width: auto;
 	height: auto;
 	margin-top: 10px;
-}
+} */
 
 form.small label {
 	color: black;
 }
 
-form.small input {
+/* form.small input {
 	margin-bottom: 2px;
 	height: 34px;
 	padding: 10px;
 	border-radius: 3px;
 	font-size: 14px;
-}
+} */
 
 form.small select {
 	height: 34px;
@@ -86,4 +91,12 @@ form .rating {
 .react-datepicker-wrapper,
 .react-datepicker__input-container {
 	width: 50%;
+}
+
+.header {
+	padding: 17px;
+	text-align: center;
+	background: #080808;
+	color: white;
+	font-size: 30px;
 }

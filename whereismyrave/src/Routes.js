@@ -8,7 +8,6 @@ import myEvents from './components/myEvents.jsx'
 import Event from './components/Event.jsx'
 import EmailBox from './components/EmailBox.jsx'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Button from '@material-ui/core/Button'
 
 class Routes extends React.Component {
 	render() {

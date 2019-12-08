@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { withRouter } from 'react-router-dom'
 
 class Signup extends React.Component {
 	// Data
@@ -25,61 +26,58 @@ class Signup extends React.Component {
 	signup = e => {
 		e.preventDefault()
 		axios
-			.post('http://localhost:1337/signup', this.state)
+			.post('http://localhost:1337/users', this.state, {})
 			.then(res => {
-				localStorage.setItem('token', res.data.token)
-				this.props.history.push({
-					pathname: `/home`
-				})
+				if (!res.data.token) {
+					this.setState({
+						error: 'User or Email is already in use'
+					})
+				} else {
+					console.log(res.data.token)
+					localStorage.setItem('token', res.data.token)
+					this.props.history.push({
+						pathname: `/`
+					})
+				}
 			})
-			.catch(err => {
-				console.log('err', err)
-			})
+			.catch(err => console.log(err))
 	}
 	// Render
 	render() {
 		return (
-			<div id="signup">
-				<div className="row">
-					<div className="col-4 offset-4">
-						<div className="card signup">
-							<div className="card-body">
-								<h3>Where's My Rave?</h3>
-								<form onSubmit={e => this.signup(e)}>
-									<div className="form-group signupform">
-										<input
-											type="text"
-											className="form-control"
-											placeholder="Nickname..."
-											value={this.state.name}
-											onChange={e => this.changeName(e)}
-										/>
-									</div>
-									<div className="form-group signupform">
-										<input
-											type="email"
-											className="form-control"
-											placeholder="Email..."
-											value={this.state.email}
-											onChange={e => this.changeEmail(e)}
-										/>
-									</div>
-									<div className="form-group signupform">
-										<input
-											type="password"
-											className="form-control"
-											placeholder="Password..."
-											value={this.state.password}
-											onChange={e => this.changePassword(e)}
-										/>
-									</div>
-
-									<button type="submit" className="btn btn-success">
-										Signup
-									</button>
-								</form>
+			<div className="megacontainer">
+				<div className="grid-container background">
+					<div className="content login">
+						<form onSubmit={e => this.signup(e)}>
+							<div className="group">
+								<input
+									type="text"
+									placeholder="Nickname..."
+									value={this.state.name}
+									onChange={e => this.changeName(e)}
+								/>
 							</div>
-						</div>
+							<div className="group">
+								<input
+									type="email"
+									placeholder="Email..."
+									value={this.state.email}
+									onChange={e => this.changeEmail(e)}
+								/>
+							</div>
+							<div className="group">
+								<input
+									type="password"
+									placeholder="Password..."
+									value={this.state.password}
+									onChange={e => this.changePassword(e)}
+								/>
+							</div>
+
+							<button type="submit" className="button button2">
+								Signup
+							</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -87,4 +85,4 @@ class Signup extends React.Component {
 	}
 }
 
-export default Signup
+export default withRouter(Signup)

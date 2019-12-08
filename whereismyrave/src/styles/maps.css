@@ -1,6 +1,6 @@
 .map {
-	width: 90vw;
-	height: 80%;
+	width: 100vw;
+	height: 80vh;
 	position: absolute;
 	left: 1450px;
 	margin-top: 120px;
@@ -20,16 +20,11 @@
 }
 
 .pin label {
-	background: white;
+	background: black;
 	margin: 0 auto;
 	padding: 5px 8px;
 	border-radius: 4px;
 	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 	height: 20px;
-}
-
-.pin.selected label {
-	background: #00988f;
 	color: white;
-	font-weight: bold;
 }

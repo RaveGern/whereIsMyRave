@@ -12,6 +12,31 @@ class myEvents extends React.Component {
 		events: []
 	}
 
+	callDatabase = () => {
+		axios
+			.get('http://localhost:1337/myEvents')
+			.then(res => {
+				console.log(res)
+				this.setState({
+					events: res.data
+				})
+			})
+			.catch(err => {
+				console.log(err)
+			})
+	}
+
+	handleDelete = id => {
+		axios
+			.delete(`http://localhost:1337/events`, {
+				headers: { token: 123 },
+				data: { id: id }
+			})
+			.then(res => {
+				this.callDatabase()
+			})
+	}
+
 	componentDidMount() {
 		axios
 			.get('http://localhost:1337/myEvents')
@@ -29,45 +54,25 @@ class myEvents extends React.Component {
 	render() {
 		return (
 			<>
-				<Navbar bg="dark" variant="dark">
-					<Navbar.Brand href="#home">Navbar</Navbar.Brand>
-					<Nav className="mr-auto">
-						<Nav.Link href="#home">Home</Nav.Link>
-						<Nav.Link href="#features">Features</Nav.Link>
-						<Nav.Link href="#pricing">Pricing</Nav.Link>
-					</Nav>
-					<Form inline>
-						<FormControl type="text" placeholder="Search" className="mr-sm-2" />
-						<Button variant="outline-info">Search</Button>
-					</Form>
-				</Navbar>
-				<Tab.Container id="left-tabs-example" defaultActiveKey="first">
-					<Row>
-						<Col sm={3}>
-							<Nav variant="pills" className="flex-column">
-								{this.state.events.map((rave, index) => {
-									return (
-										<Nav.Item key={index}>
-											<Nav.Link href={`/event/${rave._id}`}>
-												{rave.name}
-											</Nav.Link>
-										</Nav.Item>
-									)
-								})}
-							</Nav>
-						</Col>
-						<Col sm={9}>
-							<Tab.Content>
-								<Tab.Pane eventKey="first">
-									<Sonnet />
-								</Tab.Pane>
-								<Tab.Pane eventKey="second">
-									<Sonnet />
-								</Tab.Pane>
-							</Tab.Content>
-						</Col>
-					</Row>
-				</Tab.Container>
+				<div className="eventcontainer megacontainer">
+					{this.state.events.map((rave, index) => {
+						return (
+							<div>
+								<a href={`/event/${rave._id}`}>
+									<button className="button eventButton" key={index}>
+										{rave.name}
+									</button>
+								</a>
+								<button
+									className="deleteButton eventButton"
+									onClick={() => this.handleDelete(rave._id)}
+								>
+									Delete
+								</button>
+							</div>
+						)
+					})}
+				</div>
 			</>
 		)
 	}
