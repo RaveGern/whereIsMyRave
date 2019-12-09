@@ -30,7 +30,7 @@ class Login extends React.Component {
 					console.log(res.data)
 					localStorage.setItem('token', res.data.token)
 					this.props.history.push({
-						pathname: `/` //http://localhost:3000/
+						pathname: `/`
 					})
 				}
 			})

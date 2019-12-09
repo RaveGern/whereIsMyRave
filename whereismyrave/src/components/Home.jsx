@@ -66,7 +66,12 @@ class Home extends React.Component {
 					isRenderingEvent: true,
 					isRenderingJoin: false
 				})
-				let pointingEvent = this.state.event.find(ev => (ev.code = codeTyped))
+				let pointingEvent = this.state.event.find(ev => {
+					console.log(ev)
+					console.log('ev.code', ev.code)
+					console.log('codeTyped', codeTyped)
+					return ev.code == codeTyped
+				})
 				console.log({ pointingEvent })
 				this.props.history.push({
 					pathname: `/event/${pointingEvent._id}`
@@ -78,41 +83,43 @@ class Home extends React.Component {
 	render() {
 		return (
 			<>
-				<div className="megacontainer">
-					<div className="grid-container background">
-						<div>
-							<h2 className="left">Where is my Rave?</h2>
-							{this.state.isRenderingJoin && (
-								<Join
-									toggleRendering={this.toggleRendering}
-									changeField={this.changeField}
-									event={this.state.event}
-									id={this.state.event._id}
-									codeOk={this.codeOk}
-								/>
-							)}
-							{this.state.isRenderingEvent && (
-								<Event
-									event={this.state.event}
-									id={this.state.event._id}
-									changeField={this.state.changeField}
-								/>
-							)}
+				<div className="wrap">
+					<div className="megacontainer">
+						<div className="grid-container background">
+							<div>
+								<h2 className="left">Where is my Rave?</h2>
+								{this.state.isRenderingJoin && (
+									<Join
+										toggleRendering={this.toggleRendering}
+										changeField={this.changeField}
+										event={this.state.event}
+										id={this.state.event._id}
+										codeOk={this.codeOk}
+									/>
+								)}
+								{this.state.isRenderingEvent && (
+									<Event
+										event={this.state.event}
+										id={this.state.event._id}
+										changeField={this.state.changeField}
+									/>
+								)}
 
-							{this.auth() ? (
+								{this.auth() ? (
+									<div>
+										<Link to="/organize">
+											<button className="button1 button">Create</button>
+										</Link>
+									</div>
+								) : (
+									''
+								)}
+
 								<div>
-									<Link to="/organize">
-										<button className="button1 button">Create</button>
+									<Link to="/Login">
+										<button className="button2 button">Login</button>
 									</Link>
 								</div>
-							) : (
-								''
-							)}
-
-							<div>
-								<Link to="/Login">
-									<button className="button2 button">Login</button>
-								</Link>
 							</div>
 						</div>
 					</div>

@@ -39,6 +39,8 @@ class Event extends React.Component {
 		console.log(emailInput)
 	}
 	handleSubmit = e => {
+		console.log('this.state.event.code', this.state.event.code)
+		console.log('this.state.event', this.state.event)
 		console.log('handleSubmit works')
 		let eventID = this.props.match.params.id
 		e.preventDefault()
@@ -55,21 +57,6 @@ class Event extends React.Component {
 			})
 			.catch(err => {
 				console.log({ err })
-			})
-		axios
-			.post(`${process.env.REACT_APP_API}/users`, {
-				email: this.state.email.address,
-				code: this.state.event.code,
-				id: this.state.event._id
-			})
-			.then(res => {
-				console.log('aaaa', res)
-				this.setState({
-					users: res.data.data
-				})
-			})
-			.catch(err => {
-				console.log(err)
 			})
 	}
 

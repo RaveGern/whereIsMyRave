@@ -39,6 +39,10 @@
 	margin-left: 75px;
 }
 
+.wrap {
+	min-width: 600px;
+}
+
 .button {
 	background-color: white; /* Green */
 	border: none;
@@ -62,7 +66,7 @@
 	right: 325px;
 	font-style: italic;
 	font-weight: bold;
-	position: absolute;
+	position: fixed;
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	opacity: 0.8;
 }
