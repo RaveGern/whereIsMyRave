@@ -1,10 +1,6 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
 import axios from 'axios'
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap'
-import ListGroup from 'react-bootstrap/ListGroup'
-import { Tab, Row, Col } from 'react-bootstrap'
-import Sonnet from 'react-bootstrap/Tabs'
 import { withRouter } from 'react-router-dom'
 
 class myEvents extends React.Component {
@@ -14,7 +10,9 @@ class myEvents extends React.Component {
 
 	callDatabase = () => {
 		axios
-			.get('http://localhost:1337/myEvents')
+			.get(`${process.env.REACT_APP_API}/MyEvents`, {
+				headers: { authorization: `Bearer ${localStorage.getItem('token')}` }
+			})
 			.then(res => {
 				console.log(res)
 				this.setState({
@@ -28,7 +26,7 @@ class myEvents extends React.Component {
 
 	handleDelete = id => {
 		axios
-			.delete(`http://localhost:1337/events`, {
+			.delete(`${process.env.REACT_APP_API}/events`, {
 				headers: { token: 123 },
 				data: { id: id }
 			})
@@ -39,7 +37,10 @@ class myEvents extends React.Component {
 
 	componentDidMount() {
 		axios
-			.get('http://localhost:1337/myEvents')
+
+			.get(`${process.env.REACT_APP_API}/MyEvents`, {
+				headers: { authorization: `Bearer ${localStorage.getItem('token')}` }
+			})
 			.then(res => {
 				console.log(res)
 				this.setState({
@@ -57,14 +58,14 @@ class myEvents extends React.Component {
 				<div className="eventcontainer megacontainer">
 					{this.state.events.map((rave, index) => {
 						return (
-							<div>
+							<div key={index}>
 								<a href={`/event/${rave._id}`}>
-									<button className="button eventButton" key={index}>
+									<button className="button eventButton left" key={index}>
 										{rave.name}
 									</button>
 								</a>
 								<button
-									className="deleteButton eventButton"
+									className="deleteButton eventButton right2"
 									onClick={() => this.handleDelete(rave._id)}
 								>
 									Delete

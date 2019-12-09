@@ -43,6 +43,7 @@
 	background-color: white; /* Green */
 	border: none;
 	color: black;
+	width: 350px;
 	padding: 15px 32px;
 	text-align: center;
 	text-decoration: none;
@@ -80,6 +81,7 @@
 	margin-top: 30px;
 	margin-left: 30px;
 	padding: 20px;
+	width: 350px;
 }
 
 .button:hover {
@@ -87,9 +89,21 @@
 	color: white;
 }
 
+.left {
+	position: absolute;
+	left: 450px;
+	margin-left: 80px;
+}
+
 .right {
 	position: absolute;
 	right: 37px;
+}
+
+.right2 {
+	position: absolute;
+	right: 450px;
+	margin-right: 80px;
 }
 
 .inviteBox {
@@ -121,6 +135,7 @@
 	border-top-right-radius: 5px;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
+	width: 350px;
 }
 
 .deleteButton:hover {

@@ -40,7 +40,7 @@
 	background: #2d3436;
 	background-image: url('../images/Weltenbaumpixel.png'); /* fallback */
 	background-image: url('../images/Weltenbaumpixel.png'),
-		linear-gradient(315deg, #2d3436 0%, #000000 90%);
+		linear-gradient(315deg, #2d3436 35%, #000000 90%);
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: right;

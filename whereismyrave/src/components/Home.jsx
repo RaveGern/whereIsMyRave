@@ -38,7 +38,7 @@ class Home extends React.Component {
 
 	componentDidMount() {
 		axios
-			.get('http://localhost:1337/myEvents')
+			.get(`${process.env.REACT_APP_API}/events`)
 			.then(res => {
 				console.log('res all events', res.data)
 				this.setState({

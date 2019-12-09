@@ -43,7 +43,7 @@ class Event extends React.Component {
 		let eventID = this.props.match.params.id
 		e.preventDefault()
 		axios
-			.post(`http://localhost:1337/event/${eventID}`, {
+			.post(`${process.env.REACT_APP_API}/event/${eventID}`, {
 				email: this.state.email,
 				code: this.state.event.code
 			})
@@ -57,7 +57,7 @@ class Event extends React.Component {
 				console.log({ err })
 			})
 		axios
-			.post('http://localhost:1337/users', {
+			.post(`${process.env.REACT_APP_API}/users`, {
 				email: this.state.email.address,
 				code: this.state.event.code,
 				id: this.state.event._id
@@ -77,7 +77,7 @@ class Event extends React.Component {
 		let eventID = this.props.match.params.id
 
 		axios
-			.get(`http://localhost:1337/event/${eventID}`)
+			.get(`${process.env.REACT_APP_API}/event/${eventID}`)
 			.then(res => {
 				console.log('res all events zzzz', res.data)
 
@@ -105,11 +105,25 @@ class Event extends React.Component {
 						<div className="eventFont">
 							<ul>
 								<h3>{this.state.event.name}</h3>
-								<h3>{moment(this.state.event.day).format('DD MMM YY ')}</h3>
-								<h3>{moment(this.state.event.start).format('h:mm a')}</h3>
-								<h3>{moment(this.state.event.end).format('h:mm a')}</h3>
 								<h3>
-									Lat {this.state.event.lat} + Lng {this.state.event.lng}
+									Day {''}
+									{moment(this.state.event.day).format('DD MMM YY ')}
+								</h3>
+								<h3>
+									Start {''}
+									{moment(this.state.event.start).format('h:mm a')}
+								</h3>
+								<h3>
+									End {''}
+									{moment(this.state.event.end).format('h:mm a')}
+								</h3>
+								<h3>
+									Lat {''}
+									{this.state.event.lat}
+								</h3>
+								<h3>
+									Lng {''}
+									{this.state.event.lng}
 								</h3>
 							</ul>
 						</div>

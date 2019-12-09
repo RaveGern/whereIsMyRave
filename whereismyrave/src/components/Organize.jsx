@@ -62,7 +62,9 @@ class Organize extends React.Component {
 		let fields = ['name', 'day', 'start', 'end', 'genre', 'code']
 
 		axios
-			.post('http://localhost:1337/events', this.state.newEvent, {})
+			.post(`${process.env.REACT_APP_API}/events`, this.state.newEvent, {
+				headers: { authorization: `Bearer ${localStorage.getItem('token')}` }
+			})
 			.then(res => {
 				console.log(res)
 				this.setState({
