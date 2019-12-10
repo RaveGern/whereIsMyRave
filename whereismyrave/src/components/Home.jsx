@@ -88,7 +88,7 @@ class Home extends React.Component {
 					<h2>Where is my Rave?</h2>
 					<div>
 						<Link to="/Login">
-							<button className="button">Login / Signup</button>
+							<button className="button">Login / Sign up</button>
 						</Link>
 					</div>
 					<Logout auth={this.auth} />

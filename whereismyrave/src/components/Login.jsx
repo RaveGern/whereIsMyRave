@@ -70,9 +70,9 @@ class Login extends React.Component {
 								</button>
 							</div>
 						</form>
-						<h4>Tell us where your Rave is and</h4>{' '}
+						<h4>Before you can create an Event you need to Sign up</h4>{' '}
 						<Link to="/Signup">
-							<h4>Sign up</h4>
+							<h4>Click here!</h4>
 						</Link>
 					</div>
 				</div>
