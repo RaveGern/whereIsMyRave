@@ -17,7 +17,6 @@
 	height: 65%;
 	left: 1100px;
 	bottom: 160px;
-	margin-right: 30px;
 }
 
 .eventMap {
@@ -32,7 +31,7 @@
 
 .grid-container {
 	display: grid;
-	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
 	height: 100vh;
 }
 
@@ -49,4 +48,18 @@
 .eventcontainer {
 	display: grid;
 	height: 100vh;
+}
+
+.organizeWrapper {
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr;
+}
+
+.howToUse {
+	z-index: 1;
+	width: 246px;
+	height: 200px;
+	left: 625px;
+	bottom: 672px;
+	position: absolute;
 }

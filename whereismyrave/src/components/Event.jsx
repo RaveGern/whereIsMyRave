@@ -79,40 +79,56 @@ class Event extends React.Component {
 	render() {
 		return (
 			<>
-				<div className="header color">
-					<h3>Where's My Rave???</h3>
-					<Link to="/">
-						<button className="right">
-							<i class="fas fa-home"></i>
-						</button>
-					</Link>
-				</div>
+				<Link to="/">
+					<button className="right">
+						<i class="fas fa-home"></i>
+					</button>
+				</Link>
+
 				<div className="megacontainer grid-container">
 					<div className="grid">
 						<div className="eventFont">
 							<ul>
-								<h3>{this.state.event.name}</h3>
+								<h3>Title:{this.state.event.name}</h3>
 								<h3>
-									Day {''}
+									Day: {''}
 									{moment(this.state.event.day).format('DD MMM YY ')}
 								</h3>
 								<h3>
-									Start {''}
+									Start: {''}
 									{moment(this.state.event.start).format('h:mm a')}
 								</h3>
 								<h3>
-									End {''}
+									End: {''}
 									{moment(this.state.event.end).format('h:mm a')}
 								</h3>
 								<h3>
-									Lat {''}
+									Lat: {''}
 									{this.state.event.lat}
 								</h3>
 								<h3>
-									Lng {''}
+									Lng: {''}
 									{this.state.event.lng}
 								</h3>
 							</ul>
+							<div className="littlebox">
+								<h3 className="white inline">Invite some Friends</h3>
+								<button
+									className="inline roundedButton"
+									onClick={this.toggleHidden.bind(this)}
+								>
+									<i class="fas fa-user-plus"></i>
+								</button>
+								{!this.state.isHidden && (
+									<EmailBox
+										inputEmail={this.inputEmail}
+										onChange={e => this.inputEmail(e, 'email')}
+										value={this.state.email.raver}
+										handleSubmit={this.handleSubmit}
+										toggleHidden={this.toggleHidden}
+									/>
+								)}
+							</div>
 						</div>
 						<div className="eventMap">
 							<GoogleMap
@@ -128,25 +144,6 @@ class Event extends React.Component {
 							</GoogleMap>
 						</div>
 					</div>
-					<div>
-						<h3 className="white">Invite some Friends</h3>
-						<button
-							className="roundedButton"
-							onClick={this.toggleHidden.bind(this)}
-						>
-							+
-						</button>
-					</div>
-
-					{!this.state.isHidden && (
-						<EmailBox
-							inputEmail={this.inputEmail}
-							onChange={e => this.inputEmail(e, 'email')}
-							value={this.state.email.raver}
-							handleSubmit={this.handleSubmit}
-							toggleHidden={this.toggleHidden}
-						/>
-					)}
 				</div>
 			</>
 		)

@@ -2,6 +2,7 @@ import React from 'react'
 import GoogleMapReact from 'google-map-react'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class myEvents extends React.Component {
 	state = {
@@ -55,24 +56,35 @@ class myEvents extends React.Component {
 	render() {
 		return (
 			<>
+				<Link to="/">
+					<button className="right">
+						<i class="fas fa-home"></i>
+					</button>
+				</Link>
 				<div className="eventcontainer megacontainer">
-					{this.state.events.map((rave, index) => {
-						return (
-							<div key={index}>
-								<a href={`/event/${rave._id}`}>
-									<button className="button eventButton left" key={index}>
-										{rave.name}
-									</button>
-								</a>
-								<button
-									className="deleteButton eventButton right2"
-									onClick={() => this.handleDelete(rave._id)}
-								>
-									Delete
-								</button>
-							</div>
-						)
-					})}
+					<div className="grid-container">
+						{this.state.events.map((rave, index) => {
+							return (
+								<>
+									<div key={index}>
+										<a href={`/event/${rave._id}`}>
+											<button className="eventButton button" key={index}>
+												{rave.name}
+											</button>
+										</a>
+									</div>
+									<div key={index}>
+										<button
+											className="eventButton deleteButton "
+											onClick={() => this.handleDelete(rave._id)}
+										>
+											Delete
+										</button>
+									</div>
+								</>
+							)
+						})}
+					</div>
 				</div>
 			</>
 		)

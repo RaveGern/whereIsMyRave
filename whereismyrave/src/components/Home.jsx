@@ -1,6 +1,7 @@
 import React from 'react'
 import Join from './Join.jsx'
 import Login from './Login.jsx'
+import Logout from './Logout.jsx'
 import Event from './Event.jsx'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
@@ -117,13 +118,14 @@ class Home extends React.Component {
 
 								<div>
 									<Link to="/Login">
-										<button className="button2 button">Login</button>
+										<button className="button2 button">Login / Signup</button>
 									</Link>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<Logout auth={this.auth} />
 			</>
 		)
 	}

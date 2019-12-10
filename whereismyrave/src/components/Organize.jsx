@@ -82,54 +82,91 @@ class Organize extends React.Component {
 	render() {
 		return (
 			<div className="grid-container megacontainer">
-				<form onSubmit={e => this.createEvent(e)}>
-					<Link to="/">
-						<button className="right">
-							<i class="fas fa-home"></i>
-						</button>
-					</Link>
+				<div className="organizeWrapper">
+					<div className="formWrapper">
+						<form onSubmit={e => this.createEvent(e)}>
+							<Link to="/">
+								<button className="right">
+									<i class="fas fa-home"></i>
+								</button>
+							</Link>
 
-					<label>Name</label>
-					<div className="group">
-						<input
-							type="text"
-							value={this.state.newEvent.name}
-							onChange={e => this.changeField(e, 'name')}
-						></input>
+							<label>Name</label>
+							<div className="group">
+								<input
+									type="text"
+									value={this.state.newEvent.name}
+									onChange={e => this.changeField(e, 'name')}
+								></input>
+							</div>
+							<label>Day</label>
+							<div className="group">
+								<DatePicker
+									selected={this.state.newEvent.day}
+									onChange={this.handleChangeDay}
+									dateFormat="dd / MM / yyyy"
+								/>
+							</div>
+							<label>Start</label>
+							<div className="group">
+								<DatePicker
+									selected={this.state.newEvent.start}
+									onChange={this.handleChangeStart}
+									showTimeSelect
+									showTimeSelectOnly
+									timeIntervals={15}
+									timeCaption="Time"
+									dateFormat="h:mm aa"
+								/>
+							</div>
+							<label>End</label>
+							<div className="group">
+								<DatePicker
+									selected={this.state.newEvent.end}
+									onChange={this.handleChangeEnd}
+									showTimeSelect
+									showTimeSelectOnly
+									timeIntervals={15}
+									timeCaption="Time"
+									dateFormat="h:mm aa"
+								/>
+							</div>
+
+							<label>Genre</label>
+							<div className="group">
+								<input
+									type="text"
+									value={this.state.newEvent.genre}
+									onChange={e => this.changeField(e, 'genre')}
+								></input>
+							</div>
+							<label>Code</label>
+							<div className="group">
+								<input
+									type="text"
+									value={this.state.newEvent.code}
+									onChange={e => this.changeField(e, 'code')}
+									minLength="7"
+									maxLength="7"
+								></input>
+							</div>
+
+							<button className="button group2">Submit</button>
+						</form>
 					</div>
-					<label>Day</label>
-					<div className="group">
-						<DatePicker
-							selected={this.state.newEvent.day}
-							onChange={this.handleChangeDay}
-							dateFormat="dd / MM / yyyy"
-						/>
+					<div className="howToUse">
+						<h4>How to use?</h4>
+						<p className="howWhite">1. Click on the map to set your Location</p>
+						<p className="howWhite">
+							2. Fill out the form and make sure to set a super secret Code!
+							(Code has to be atleast 7 units long)
+						</p>
+						<p className="howWhite">3. Submit form</p>
+						<p className="howWhite">
+							4. After you successfully submitted, invite some Friends!
+						</p>
 					</div>
-					<label>Start</label>
-					<div className="group">
-						<DatePicker
-							selected={this.state.newEvent.start}
-							onChange={this.handleChangeStart}
-							showTimeSelect
-							showTimeSelectOnly
-							timeIntervals={15}
-							timeCaption="Time"
-							dateFormat="h:mm aa"
-						/>
-					</div>
-					<label>End</label>
-					<div className="group">
-						<DatePicker
-							selected={this.state.newEvent.end}
-							onChange={this.handleChangeEnd}
-							showTimeSelect
-							showTimeSelectOnly
-							timeIntervals={15}
-							timeCaption="Time"
-							dateFormat="h:mm aa"
-						/>
-					</div>
-					<div className=" grid createMap wrapper">
+					<div className=" grid createMap">
 						<GoogleMapReact
 							bootstrapURLKeys={this.state.key}
 							center={this.state.center}
@@ -143,25 +180,7 @@ class Organize extends React.Component {
 							/>
 						</GoogleMapReact>
 					</div>
-					<label>Genre</label>
-					<div className="group">
-						<input
-							type="text"
-							value={this.state.newEvent.genre}
-							onChange={e => this.changeField(e, 'genre')}
-						></input>
-					</div>
-					<label>Code</label>
-					<div className="group">
-						<input
-							type="text"
-							value={this.state.newEvent.code}
-							onChange={e => this.changeField(e, 'code')}
-						></input>
-					</div>
-
-					<button className="button group">Submit</button>
-				</form>
+				</div>
 			</div>
 		)
 	}

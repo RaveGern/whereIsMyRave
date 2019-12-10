@@ -5,8 +5,12 @@ class EmailBox extends React.Component {
 		return (
 			<form onSubmit={e => this.props.handleSubmit(e)}>
 				<div className="inviteBox">
-					<input type="email" onChange={this.props.inputEmail}></input>
-					<button>Invite</button>
+					<input
+						className="email"
+						type="email"
+						onChange={this.props.inputEmail}
+					></input>
+					<button className="emailButton">Invite</button>
 				</div>
 			</form>
 		)

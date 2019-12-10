@@ -41,40 +41,49 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<div className="megacontainer">
-				<div className="grid-container background">
-					<div className="content login">
-						<form onSubmit={e => this.login(e)}>
-							<div className="group">
-								<label>Email</label>
-								<input
-									type="email"
-									value={this.state.email}
-									onChange={e => this.changeField(e, 'email')}
-								/>
+			<>
+				<Link to="/">
+					<button className="right">
+						<i class="fas fa-home"></i>
+					</button>
+				</Link>
+				<div className="megacontainer">
+					<div className="grid-container background">
+						<div className="content login">
+							<form onSubmit={e => this.login(e)}>
+								<div className="group">
+									<label>Email</label>
+									<input
+										type="email"
+										value={this.state.email}
+										onChange={e => this.changeField(e, 'email')}
+									/>
+								</div>
+								<div className="group">
+									<label>Password</label>
+									<input
+										type="password"
+										value={this.state.password}
+										onChange={e => this.changeField(e, 'password')}
+									/>
+								</div>
+								<div>
+									<button className="content button2 button">
+										Login
+										<Link to="/"></Link>
+									</button>
+								</div>
+							</form>
+							<div className="login group">
+								<h4>Tell us where your Rave is and</h4>{' '}
+								<Link to="/Signup">
+									<h4>Sign up</h4>
+								</Link>
 							</div>
-							<div className="group">
-								<label>Password</label>
-								<input
-									type="password"
-									value={this.state.password}
-									onChange={e => this.changeField(e, 'password')}
-								/>
-							</div>
-							<button className="primary">
-								Login
-								<Link to="/"></Link>
-							</button>
-						</form>
-						<p className="footer">
-							<h4>Tell us where your Rave is and</h4>{' '}
-							<Link to="/Signup">
-								<h4>Sign up</h4>
-							</Link>
-						</p>
+						</div>
 					</div>
 				</div>
-			</div>
+			</>
 		)
 	}
 }

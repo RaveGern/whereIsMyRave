@@ -7,13 +7,13 @@
 	border-bottom-right-radius: 10px;
 	border-style: solid;
 	height: 100px;
-	width: 400px;
+	width: 450px;
 	background-color: #f0f8ff;
 	box-shadow: 0.5px 1px 2px rgba(0, 0, 0, 0.4);
 	position: absolute;
 	right: 300px;
 	top: 150px;
-	padding: 22px;
+	padding: 19px;
 }
 
 .header {
@@ -33,6 +33,16 @@
 	width: 75px;
 	position: absolute;
 	left: 550px;
+	margin: 10px;
+}
+
+.inline {
+	display: inline-block;
+}
+
+.roundedButton:hover {
+	background-color: #4caf50; /* Green */
+	color: white;
 }
 
 .margin {
@@ -44,6 +54,8 @@
 }
 
 .button {
+	font-style: italic;
+	font-weight: bold;
 	background-color: white; /* Green */
 	border: none;
 	color: black;
@@ -76,15 +88,14 @@
 	height: 70px;
 	width: 350px;
 	bottom: 250px;
-	margin-left: 30px;
 	left: 250px;
 	opacity: 0.9;
 }
 
 .eventButton {
-	margin-top: 30px;
-	margin-left: 30px;
-	padding: 20px;
+	margin-top: 40px;
+	margin-left: 200px;
+	padding: 25px;
 	width: 350px;
 }
 
@@ -95,13 +106,19 @@
 
 .left {
 	position: absolute;
-	left: 450px;
-	margin-left: 80px;
+	left: 200px;
+	top: 110px;
+	margin-left: 35px;
 }
 
 .right {
-	position: absolute;
-	right: 37px;
+	position: fixed;
+	right: 45px;
+	height: 50px;
+	width: 50px;
+	margin: 15px;
+	background-color: white;
+	color: black;
 }
 
 .right2 {
@@ -111,11 +128,12 @@
 }
 
 .inviteBox {
-	padding: 20px;
+	padding: 10px;
 	position: absolute;
-	bottom: 100px;
+	bottom: 209px;
 	height: 100px;
-	width: 700px;
+	width: 480px;
+	margin-left: 25px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	border-bottom-left-radius: 10px;
@@ -124,13 +142,34 @@
 	border-color: #f5f5f5;
 }
 
+.littlebox {
+	border-style: solid;
+	border-color: #f5f5f5;
+	margin: 10px;
+	margin-top: 115px;
+	width: 550px;
+}
+
+.emailButton {
+	margin: 15px;
+	width: 80px;
+	height: 40px;
+	font-style: italic;
+	font-weight: bold;
+	background-color: white; /* Green */
+	border: none;
+	color: black;
+}
+
+.emailButton:hover {
+	background-color: #4caf50; /* Green */
+	color: white;
+}
+
 .deleteButton {
-	height: 65px;
-	width: 125px;
 	background-color: white;
 	border: none;
 	color: black;
-	padding: 15px 32px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
@@ -139,10 +178,21 @@
 	border-top-right-radius: 5px;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
-	width: 350px;
 }
 
 .deleteButton:hover {
 	background-color: #980000; /* red */
 	color: white;
+}
+
+.logout {
+	position: absolute;
+	left: 2px;
+	top: 5px;
+	margin-top: 5px;
+	margin-left: 5px;
+	width: 40px;
+	height: 40px;
+	background-color: white;
+	color: black;
 }

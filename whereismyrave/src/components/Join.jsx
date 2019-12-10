@@ -22,7 +22,7 @@ class Join extends React.Component {
 					<div className="margin">
 						<ReactCodeInput
 							type="password"
-							fields={4}
+							fields={7}
 							onChange={e => {
 								this.props.changeField(e)
 								this.props.codeOk()

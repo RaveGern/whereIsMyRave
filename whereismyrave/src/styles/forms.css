@@ -9,6 +9,10 @@ form input {
 	margin-left: 50px;
 }
 
+.email {
+	width: 250px;
+}
+
 form input[type='file'] {
 	padding: 13px;
 }
@@ -19,25 +23,16 @@ form label {
 	margin-bottom: 8px;
 	color: #f5f5f5;
 	font-weight: bold;
-	margin-left: 50px;
+	margin-left: 70px;
 }
 
 .group {
 	margin: 22px;
 }
 
-form .group + button {
+.group2 {
 	margin-top: 50px;
-	margin-left: 50px;
-}
-
-form textarea {
-	width: 50%;
-	border-radius: 4px;
-	font-size: 16px;
-	padding: 10px 15px;
-	box-sizing: border-box;
-	height: 100px;
+	margin-left: 70px;
 }
 
 select {
@@ -80,10 +75,8 @@ h2 + form {
 	margin-top: 50px;
 }
 
-form .rating {
-	cursor: pointer;
-	font-size: 14px;
-	margin: 10px 0;
+.formWrapper {
+	display: grid;
 }
 
 /* React Date Picker */
