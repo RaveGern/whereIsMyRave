@@ -10,8 +10,8 @@ import { withRouter } from 'react-router-dom'
 class Organize extends React.Component {
 	state = {
 		newEvent: {
-			lat: 0,
-			lng: 0
+			lat: null,
+			lng: null
 		},
 		key: {
 			key: 'AIzaSyCVJkF4x11QI221vToWHyVvM4voNYuYbwU'
