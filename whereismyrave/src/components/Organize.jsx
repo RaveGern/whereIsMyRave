@@ -161,7 +161,7 @@ class Organize extends React.Component {
 						<p className="howWhite">1. Click on the map to set your Location</p>
 						<p className="howWhite">
 							2. Fill out the form and make sure to set a super secret Code!
-							(Code has to be atleast 7 units long)
+							(Code has to be atleast 6 units long)
 						</p>
 						<p className="howWhite">3. Submit form</p>
 						<p className="howWhite">
