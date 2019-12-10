@@ -32,6 +32,11 @@ h3 {
 	left: 100px;
 }
 
+#error_message {
+	color: white;
+	font-size: 15px;
+}
+
 .eventFont {
 	color: #f5f5f5;
 	padding: 0;

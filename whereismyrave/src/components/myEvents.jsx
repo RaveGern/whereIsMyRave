@@ -63,7 +63,7 @@ class myEvents extends React.Component {
 				</Link>
 				<div className="eventcontainer megacontainer">
 					<div className="grid-container">
-						{this.state.events.map((rave, index) => {
+						{this.state.events.map((rave, index, index2) => {
 							return (
 								<>
 									<div key={index}>
@@ -73,7 +73,7 @@ class myEvents extends React.Component {
 											</button>
 										</a>
 									</div>
-									<div key={index}>
+									<div key={index2}>
 										<button
 											className="eventButton deleteButton "
 											onClick={() => this.handleDelete(rave._id)}

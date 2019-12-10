@@ -23,6 +23,7 @@ class Login extends React.Component {
 			.then(res => {
 				if (!res.data.token) {
 					console.log(res)
+
 					this.setState({
 						error: 'E-Mail or Password is wrong'
 					})
@@ -34,8 +35,8 @@ class Login extends React.Component {
 					})
 				}
 			})
-			.catch(err => {
-				console.log({ err })
+			.catch(res => {
+				console.log({ res })
 			})
 	}
 
@@ -53,6 +54,7 @@ class Login extends React.Component {
 							<form onSubmit={e => this.login(e)}>
 								<div className="group">
 									<label>Email</label>
+
 									<input
 										type="email"
 										value={this.state.email}

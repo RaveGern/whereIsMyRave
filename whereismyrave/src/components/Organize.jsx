@@ -67,12 +67,14 @@ class Organize extends React.Component {
 			})
 			.then(res => {
 				console.log(res)
-				this.setState({
-					events: res.data
-				})
-				this.props.history.push({
-					pathname: `/MyEvents`
-				})
+				if (!res.data.errors) {
+					this.setState({
+						events: res.data
+					})
+					this.props.history.push({
+						pathname: `/MyEvents`
+					})
+				}
 			})
 			.catch(err => {
 				console.log(err)
