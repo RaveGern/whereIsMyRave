@@ -95,6 +95,16 @@ class Home extends React.Component {
 				</div>
 
 				<div className="megacontainer justify">
+					{this.auth() ? (
+						<Link to="/MyEvents">
+							<button className="right">
+								<i class="fas fa-music"></i>
+							</button>
+						</Link>
+					) : (
+						''
+					)}
+
 					<div className="margin">
 						<h2>Insert Code</h2>
 						{this.state.isRenderingJoin && (
