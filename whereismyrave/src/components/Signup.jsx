@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class Signup extends React.Component {
 	// Data
@@ -45,11 +46,11 @@ class Signup extends React.Component {
 	// Render
 	render() {
 		return (
-			<div className="megacontainer">
-				<div className="grid-container background">
-					<div className="content login">
+			<div className="grid-container">
+				<div className="background">
+					<div className="signup">
 						<form onSubmit={e => this.signup(e)}>
-							<div className="group">
+							<div className="signup">
 								<input
 									type="text"
 									placeholder="Nickname..."
@@ -57,7 +58,7 @@ class Signup extends React.Component {
 									onChange={e => this.changeName(e)}
 								/>
 							</div>
-							<div className="group">
+							<div className="signup">
 								<input
 									type="email"
 									placeholder="Email..."
@@ -65,7 +66,7 @@ class Signup extends React.Component {
 									onChange={e => this.changeEmail(e)}
 								/>
 							</div>
-							<div className="group">
+							<div className="signup">
 								<input
 									type="password"
 									placeholder="Password..."
@@ -74,11 +75,18 @@ class Signup extends React.Component {
 								/>
 							</div>
 
-							<button type="submit" className="content button button2">
+							<button type="submit" className="signup button button2">
 								Signup
 							</button>
 						</form>
 					</div>
+				</div>
+				<div className="megacontainer">
+					<Link to="/">
+						<button className="right">
+							<i class="fas fa-home"></i>
+						</button>
+					</Link>
 				</div>
 			</div>
 		)

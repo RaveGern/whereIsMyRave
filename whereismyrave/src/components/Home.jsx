@@ -83,50 +83,42 @@ class Home extends React.Component {
 
 	render() {
 		return (
-			<>
-				<div className="wrap">
-					<div className="megacontainer">
-						<div className="grid-container background">
-							<div>
-								<h2 className="left">Where is my Rave?</h2>
-								{this.state.isRenderingJoin && (
-									<Join
-										toggleRendering={this.toggleRendering}
-										changeField={this.changeField}
-										event={this.state.event}
-										id={this.state.event._id}
-										codeOk={this.codeOk}
-									/>
-								)}
-								{this.state.isRenderingEvent && (
-									<Event
-										event={this.state.event}
-										id={this.state.event._id}
-										changeField={this.state.changeField}
-									/>
-								)}
-
-								{this.auth() ? (
-									<div>
-										<Link to="/organize">
-											<button className="button1 button">Create</button>
-										</Link>
-									</div>
-								) : (
-									''
-								)}
-
-								<div>
-									<Link to="/Login">
-										<button className="button2 button">Login / Signup</button>
-									</Link>
-								</div>
-							</div>
-						</div>
+			<div className="grid-container">
+				<div className="background justify">
+					<h2>Where is my Rave?</h2>
+					<div>
+						<Link to="/Login">
+							<button className="button">Login / Signup</button>
+						</Link>
 					</div>
+					<Logout auth={this.auth} />
 				</div>
-				<Logout auth={this.auth} />
-			</>
+
+				<div className="megacontainer justify">
+					<div className="margin">
+						<h2>Insert Code</h2>
+						{this.state.isRenderingJoin && (
+							<Join
+								toggleRendering={this.toggleRendering}
+								changeField={this.changeField}
+								event={this.state.event}
+								id={this.state.event._id}
+								codeOk={this.codeOk}
+							/>
+						)}
+					</div>
+
+					{this.auth() ? (
+						<div>
+							<Link to="/organize">
+								<button className="button">Create</button>
+							</Link>
+						</div>
+					) : (
+						''
+					)}
+				</div>
+			</div>
 		)
 	}
 }

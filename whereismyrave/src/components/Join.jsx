@@ -18,11 +18,10 @@ class Join extends React.Component {
 		return (
 			<>
 				<div className="roundedCorners">
-					<h2 className="top">Input Code</h2>
-					<div className="margin">
+					<div>
 						<ReactCodeInput
 							type="password"
-							fields={7}
+							fields={6}
 							onChange={e => {
 								this.props.changeField(e)
 								this.props.codeOk()

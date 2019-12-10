@@ -158,7 +158,6 @@ p.footer {
 }
 
 .login {
-	margin-top: 200px;
-	margin-left: 50px;
+	margin: 0 auto;
 	padding: 70px;
 }

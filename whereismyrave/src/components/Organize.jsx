@@ -148,8 +148,8 @@ class Organize extends React.Component {
 									type="text"
 									value={this.state.newEvent.code}
 									onChange={e => this.changeField(e, 'code')}
-									minLength="7"
-									maxLength="7"
+									minLength="6"
+									maxLength="6"
 								></input>
 							</div>
 
@@ -168,7 +168,7 @@ class Organize extends React.Component {
 							4. After you successfully submitted, invite some Friends!
 						</p>
 					</div>
-					<div className=" grid createMap">
+					<div className="createMap">
 						<GoogleMapReact
 							bootstrapURLKeys={this.state.key}
 							center={this.state.center}

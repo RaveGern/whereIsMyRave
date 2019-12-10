@@ -42,50 +42,49 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<>
-				<Link to="/">
-					<button className="right">
-						<i class="fas fa-home"></i>
-					</button>
-				</Link>
-				<div className="megacontainer">
-					<div className="grid-container background">
-						<div className="content login">
-							<form onSubmit={e => this.login(e)}>
-								<div className="group">
-									<label>Email</label>
+			<div className="grid-container">
+				<div className="background">
+					<div className="content login">
+						<form onSubmit={e => this.login(e)}>
+							<div className="group">
+								<label>Email</label>
 
-									<input
-										type="email"
-										value={this.state.email}
-										onChange={e => this.changeField(e, 'email')}
-									/>
-								</div>
-								<div className="group">
-									<label>Password</label>
-									<input
-										type="password"
-										value={this.state.password}
-										onChange={e => this.changeField(e, 'password')}
-									/>
-								</div>
-								<div>
-									<button className="content button2 button">
-										Login
-										<Link to="/"></Link>
-									</button>
-								</div>
-							</form>
-							<div className="login group">
-								<h4>Tell us where your Rave is and</h4>{' '}
-								<Link to="/Signup">
-									<h4>Sign up</h4>
-								</Link>
+								<input
+									type="email"
+									value={this.state.email}
+									onChange={e => this.changeField(e, 'email')}
+								/>
 							</div>
-						</div>
+							<div className="group">
+								<label>Password</label>
+								<input
+									type="password"
+									value={this.state.password}
+									onChange={e => this.changeField(e, 'password')}
+								/>
+							</div>
+							<div>
+								<button className="button2 button">
+									Login
+									<Link to="/"></Link>
+								</button>
+							</div>
+						</form>
+						<h4>Tell us where your Rave is and</h4>{' '}
+						<Link to="/Signup">
+							<h4>Sign up</h4>
+						</Link>
 					</div>
 				</div>
-			</>
+
+				<div className="megacontainer">
+					<Link to="/">
+						<button className="right">
+							<i class="fas fa-home"></i>
+						</button>
+					</Link>
+				</div>
+			</div>
 		)
 	}
 }

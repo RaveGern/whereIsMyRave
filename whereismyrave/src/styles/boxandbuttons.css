@@ -1,20 +1,11 @@
-.roundedCorners {
-	margin-top: 75px;
-	margin-left: 80px;
+/* .roundedCorners {
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	border-style: solid;
-	height: 100px;
-	width: 450px;
-	background-color: #f0f8ff;
 	box-shadow: 0.5px 1px 2px rgba(0, 0, 0, 0.4);
-	position: absolute;
-	right: 300px;
-	top: 150px;
-	padding: 19px;
-}
+} */
 
 .header {
 	background-color: #f1f1f1;
@@ -31,7 +22,7 @@
 	background-color: #f0f8ff;
 	height: 75px;
 	width: 75px;
-	position: absolute;
+	position: fixed;
 	left: 550px;
 	margin: 10px;
 }
@@ -43,10 +34,6 @@
 .roundedButton:hover {
 	background-color: #4caf50; /* Green */
 	color: white;
-}
-
-.margin {
-	margin-left: 75px;
 }
 
 .wrap {
@@ -71,7 +58,7 @@
 	border-bottom-right-radius: 5px;
 }
 
-.button1 {
+/* .button1 {
 	height: 70px;
 	width: 350px;
 	bottom: 100px;
@@ -81,14 +68,14 @@
 	position: fixed;
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	opacity: 0.8;
-}
+} */
 
 .button2 {
-	position: absolute;
-	height: 70px;
-	width: 350px;
-	bottom: 250px;
-	left: 250px;
+	opacity: 0.9;
+	height: 60px;
+	width: 320px;
+	margin-top: 40px;
+
 	opacity: 0.9;
 }
 
